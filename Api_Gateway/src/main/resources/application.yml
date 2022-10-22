@@ -1,0 +1,22 @@
+server:
+  port: 8083
+  
+  
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: SERVICE_1
+        uri:
+          http://localhost:8081
+        predicates:
+        - Path=/controller1/**
+        
+      - id: SERVICE_2
+        uri:
+          http://localhost:8082
+        predicates:
+        - Path=/service2/**
+        
+  application:
+    name: API_GATEWAY
