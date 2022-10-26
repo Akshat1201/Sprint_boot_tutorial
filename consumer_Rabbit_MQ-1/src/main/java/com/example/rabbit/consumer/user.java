@@ -1,5 +1,9 @@
 package com.example.rabbit.consumer;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import com.example.configuration.config;
 import com.example.dto.order;
 
@@ -11,7 +15,22 @@ public class user {
 	
 	@RabbitListener(queues = config.QUEUE_NAME)
 	public void consumeMessage(order Order) {
-		System.out.println("Order is "+Order);
+		try {
+			BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+			System.out.println("ENTER CHOICE");
+			int a=Integer.parseInt(br.readLine());
+			while(a==1) {
+			System.out.println("Order is "+Order);
+			}
+			System.out.println("order ended");
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 }
