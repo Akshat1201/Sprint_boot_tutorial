@@ -1,0 +1,18 @@
+server:
+  port: 8082
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: MYSQL
+    show-sql: true
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/resturant
+    username: root
+    password: Akshat@123
+    driver-class-name: com.mysql.jdbc.Driver
+#  jackson:
+#    serialization:
+#      fail-on-empty-beans: false
